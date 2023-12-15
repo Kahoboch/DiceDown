@@ -55,39 +55,101 @@
     </script>
 </section>
 
-<section id="rules" class="p-10 text-center">
-    <h2 class="text-3xl font-bold">Spillets Regler</h2>
-    <div class="accordion mt-6" id="accordionExample">
+<section id="rules" class="p-10 text-center bg-gray-700 text-white">
+    <h2 class="text-3xl font-bold mb-4">Spillets Regler</h2>
+    <div class="accordion" id="gameRulesAccordion">
 
-        <!-- Akkordeon for Forberedelse -->
-        <div class="accordion-item bg-white text-black">
-            <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <!-- Forberedelse -->
+        <div class="accordion-item bg-white text-black mb-2">
+            <h2 class="accordion-header" id="headingPreparation">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePreparation" aria-expanded="true" aria-controls="collapsePreparation">
                     Forberedelse
                 </button>
             </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+            <div id="collapsePreparation" class="accordion-collapse collapse show" aria-labelledby="headingPreparation" data-bs-parent="#gameRulesAccordion">
                 <div class="accordion-body">
                     Hver spiller starter med 6 terninger: D4, D6, D8, D10, D12, D20. Terningerne skal lægges i rækkefølge efter størrelse startende med den mindste (D4) og sluttende med den største (D20).
                 </div>
             </div>
         </div>
 
-        <!-- Akkordeon for Spillets Start -->
-        <div class="accordion-item bg-white text-black">
-            <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        <!-- Spillets Start -->
+        <div class="accordion-item bg-white text-black mb-2">
+            <h2 class="accordion-header" id="headingGameStart">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseGameStart" aria-expanded="false" aria-controls="collapseGameStart">
                     Spillets Start
                 </button>
             </h2>
-            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+            <div id="collapseGameStart" class="accordion-collapse collapse" aria-labelledby="headingGameStart" data-bs-parent="#gameRulesAccordion">
                 <div class="accordion-body">
                     Alle spillere slår deres mindste terning (D4) på samme tid. Målet er at slå det laveste tal.
                 </div>
             </div>
         </div>
 
-        <!-- Flere Akkordeon-elementer for andre dele af spillereglerne -->
+        <!-- Fortsæt Spillet -->
+        <div class="accordion-item bg-white text-black mb-2">
+            <h2 class="accordion-header" id="headingContinue">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContinue" aria-expanded="false" aria-controls="collapseContinue">
+                    Fortsæt
+                </button>
+            </h2>
+            <div id="collapseContinue" class="accordion-collapse collapse" aria-labelledby="headingContinue" data-bs-parent="#gameRulesAccordion">
+                <div class="accordion-body">
+                    Den spiller der slår det laveste tal skal opgradere sin terning til den næste størrelse i næste runde. I tilfælde af en bundet laveste score fortsætter de bundne spillere med at slå deres terninger indtil en af dem vinder.
+                </div>
+            </div>
+        </div>
+
+        <!-- Ved Maksimum Score -->
+        <div class="accordion-item bg-white text-black mb-2">
+            <h2 class="accordion-header" id="headingMaxScore">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMaxScore" aria-expanded="false" aria-controls="collapseMaxScore">
+                    Ved Maksimum Score
+                </button>
+            </h2>
+            <div id="collapseMaxScore" class="accordion-collapse collapse" aria-labelledby="headingMaxScore" data-bs-parent="#gameRulesAccordion">
+                <div class="accordion-body">
+                    Hvis en spiller slår det højeste tal som deres terning kan (f.eks. 8 på en D8), får de en speciel handling afhængigt af terningen:
+                    <ul>
+                        <li>D4: Ingen speciel handling.</li>
+                        <li>D6: Vælg en spiller der må slå sin terning om (kan ikke være dig selv).</li>
+                        <li>D8: Vælg en spiller der må slå sin terning om (kan være dig selv).</li>
+                        <li>D10: Vælg en spiller der skal slå sin terning om.</li>
+                        <li>D12: Vælg en spiller der skal gå en terning ned.</li>
+                        <li>D20: Vælg en spiller der skal gå en terning ned eller op.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vinderen -->
+        <div class="accordion-item bg-white text-black mb-2">
+            <h2 class="accordion-header" id="headingWinner">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWinner" aria-expanded="false" aria-controls="collapseWinner">
+                    Vinderen
+                </button>
+            </h2>
+            <div id="collapseWinner" class="accordion-collapse collapse" aria-labelledby="headingWinner" data-bs-parent="#gameRulesAccordion">
+                <div class="accordion-body">
+                    Spillet fortsætter indtil både dig og din makker har slået det laveste tal med en D20 terning. I dette tilfælde vinder I spillet!
+                </div>
+            </div>
+        </div>
+
+        <!-- Fredet -->
+        <div class="accordion-item bg-white text-black mb-2">
+            <h2 class="accordion-header" id="headingSafe">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSafe" aria-expanded="false" aria-controls="collapseSafe">
+                    Fredet
+                </button>
+            </h2>
+            <div id="collapseSafe" class="accordion-collapse collapse" aria-labelledby="headingSafe" data-bs-parent="#gameRulesAccordion">
+                <div class="accordion-body">
+                    Når du har slået det laveste tal med en D20, er du fredet og kan ikke vælges som mål for de specielle handlinger.
+                </div>
+            </div>
+        </div>
 
     </div>
 </section>
