@@ -183,12 +183,39 @@
     </div>
 </section>
 
-<section id="faq" class="p-10 text-center">
-    <h2 class="text-3xl font-bold">Ofte Stillede Spørgsmål</h2>
-    <div class="mt-5">
-        <!-- FAQ punkter her -->
+<section id="faq" class="p-10 text-center bg-gray-800 text-white">
+    <h2 class="text-3xl font-bold mb-5">Ofte Stillede Spørgsmål</h2>
+    <div class="max-w-2xl mx-auto">
+        <!-- FAQ Spørgsmål og Svar -->
+        <div class="bg-white text-black rounded-lg shadow-md p-6 mb-4">
+            <h3 class="text-xl font-semibold mb-2">Hvordan starter man spillet?</h3>
+            <p class="hidden faq-answer text-gray-700">
+                Hver spiller starter med et sæt af 6 terninger. I den første runde kaster alle spillere deres D4 terning. Den, der slår det laveste tal, begynder spillet.
+            </p>
+        </div>
+
+        <!-- Gentag strukturen for yderligere spørgsmål -->
+
+        <div class="bg-white text-black rounded-lg shadow-md p-6 mb-4">
+            <h3 class="text-xl font-semibold mb-2">Hvad sker der ved en uafgjort?</h3>
+            <p class="hidden faq-answer text-gray-700">
+                Hvis to eller flere spillere slår det samme laveste tal, skal de spillere rulle igen, indtil uafgjortheden er opklaret.
+            </p>
+        </div>
+
+        <!-- Flere FAQ punkter -->
+
     </div>
 </section>
+
+<!-- JavaScript for at vise/skjule svar -->
+<script>
+    document.querySelectorAll('.faq-answer').forEach((item) => {
+        item.previousElementSibling.addEventListener('click', () => {
+            item.classList.toggle('hidden');
+        });
+    });
+</script>
 
     <!-- Her kommer resten af hjemmesidens indhold -->
 
