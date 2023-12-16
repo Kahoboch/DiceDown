@@ -104,6 +104,50 @@ section h2 {
     filter: brightness(90%);
 }
 
+.game-description {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+}
+
+.game-description .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.game-description h2 {
+    margin-bottom: 2rem;
+}
+
+.icon-decorations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-decorations .icon {
+    height: 50px; /* Eller en anden passende størrelse */
+    width: auto;
+}
+
+/* Du kan tilføje overgange eller hover-effekter for at give ikonerne en følelse af interaktivitet */
+.icon-decorations .icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Responsivitet */
+@media (max-width: 768px) {
+    .game-description h2 {
+        font-size: 4rem;
+    }
+    .game-description p {
+        font-size: 2rem;
+    }
+}
+
 /* Footer */
 footer {
     background: #333;
