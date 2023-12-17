@@ -105,19 +105,51 @@ section h2 {
 }
 
 .game-description {
-    background-color: #ffffff;
-    color: #000000;
-    font-family: 'Arial', sans-serif;
+    position: relative; /* Needed for absolute positioning of children */
+    background-color: #ffffff; /* Assuming a white background */
+    overflow: hidden; /* Prevents icons from overflowing the section */
 }
 
+.icon-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Ensures icons stay in the background */
+}
+
+/* Styling for icons */
+.icon {
+    position: absolute; /* Allows for absolute positioning within .icon-decorations */
+    max-width: 50px; /* Sets a max size for the icons */
+    max-height: 50px; /* Sets a max size for the icons */
+    /* Remove height and width if using SVGs as they can be controlled within the SVG file */
+}
+
+/* Ensure text content is above icons */
 .game-description .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
+    position: relative;
+    z-index: 1; /* Higher than .icon-decorations */
 }
 
-.game-description h2 {
-    margin-bottom: 2rem;
+/* Additional responsive and decorative styles */
+@media (min-width: 768px) {
+    /* Your existing media query styles ... */
+}
+
+/* Ensures text content has a background to avoid overlap issues with icons */
+.game-description h2, .game-description p {
+    background-color: #ffffff;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+}
+
+/* Optional: Add some padding around the .game-description to ensure icons don't get too close to the text */
+.game-description {
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .icon-decorations {
