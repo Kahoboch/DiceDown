@@ -46,17 +46,33 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
     const iconContainer = document.getElementById('icon-decorations');
-    const icons = ['d4.svg', 'd6.svg','d8.svg','d10.svg','d12.svg','d20.svg']; // Tilføj flere ikon-stier her
+    const icons = ['d4.svg', 'd6.svg', 'd8.svg', 'd10.svg', 'd12.svg', 'd20.svg']; // Your icon paths
     const numberOfIcons = 20;
+    const containerRect = iconContainer.getBoundingClientRect();
+
+    // Function to check if a point overlaps with the text area
+    function overlapsText(x, y, textRects) {
+        return textRects.some(rect => {
+            return x < rect.right && x + 30 > rect.left && // 30px is assumed icon width
+                   y < rect.bottom && y + 30 > rect.top; // 30px is assumed icon height
+        });
+    }
+
+    // Get the bounding rectangles of all text elements
+    const textRects = Array.from(document.querySelectorAll('.game-description h2, .game-description p'))
+        .map(el => el.getBoundingClientRect());
 
     for (let i = 0; i < numberOfIcons; i++) {
         const icon = document.createElement('img');
         const randomIconIndex = Math.floor(Math.random() * icons.length);
         icon.src = icons[randomIconIndex];
         icon.classList.add('icon');
-        
-        const x = Math.random() * (iconContainer.clientWidth - 30); // 30 er bredden af ikonet
-        const y = Math.random() * (iconContainer.clientHeight - 30); // 30 er højden af ikonet
+        let x, y;
+
+        do {
+            x = Math.random() * (containerRect.width - 30); // 30 is the icon width
+            y = Math.random() * (containerRect.height - 30); // 30 is the icon height
+        } while (overlapsText(x, y, textRects));
 
         icon.style.position = 'absolute';
         icon.style.left = `${x}px`;
@@ -65,6 +81,7 @@
         iconContainer.appendChild(icon);
     }
 });
+
 </script>
 <section id="home" class="bg-gray-800 p-10 text-center">
     <h2 class="text-3xl font-bold">Det Ultimative Terningsspil for Par!</h2>
