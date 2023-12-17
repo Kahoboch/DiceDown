@@ -29,14 +29,11 @@
     </div>
 </header>
 
-    <section class="game-description">
-    <div class="container mx-auto my-10 py-10 text-center">
+    <section class="game-description position-relative">
+    <div class="container mx-auto my-10 py-10 text-center position-relative">
         <h2 class="text-6xl font-bold mb-6">"Ren strategisk nydelse." - Spil Magasinet</h2>
-        <div class="icon-decorations my-5">
-            <!-- Eksempel på SVG ikon for en terning -->
-            <img src="dice-d6.svg" alt="Dice icon" class="icon"/>
-            <img src="scroll-icon.svg" alt="Scroll icon" class="icon"/>
-            <!-- Tilføj flere ikoner efter behov -->
+        <div id="icon-decorations" class="icon-decorations my-5">
+            <!-- Ikonbeholder -->
         </div>
         <p class="text-3xl">
             <strong>Dice Down</strong> er det ultimative terningespil for par, der kombinerer held og strategi med hvert kast. Perfekt til spilaften!
@@ -46,6 +43,28 @@
         </p>
     </div>
 </section>
+
+    document.addEventListener("DOMContentLoaded", function() {
+    const iconContainer = document.getElementById('icon-decorations');
+    const icons = ['dice-d6.svg', 'scroll-icon.svg']; // Tilføj flere ikon-stier her
+    const numberOfIcons = 20;
+
+    for (let i = 0; i < numberOfIcons; i++) {
+        const icon = document.createElement('img');
+        const randomIconIndex = Math.floor(Math.random() * icons.length);
+        icon.src = icons[randomIconIndex];
+        icon.classList.add('icon');
+        
+        const x = Math.random() * (iconContainer.clientWidth - 30); // 30 er bredden af ikonet
+        const y = Math.random() * (iconContainer.clientHeight - 30); // 30 er højden af ikonet
+
+        icon.style.position = 'absolute';
+        icon.style.left = `${x}px`;
+        icon.style.top = `${y}px`;
+
+        iconContainer.appendChild(icon);
+    }
+});
 
 <section id="home" class="bg-gray-800 p-10 text-center">
     <h2 class="text-3xl font-bold">Det Ultimative Terningsspil for Par!</h2>
