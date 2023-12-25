@@ -50,31 +50,36 @@ section h2 {
     color: #000000;
 }
 
-/* Spillets Regler section styling */
 #gameRulesAccordion {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem; /* Adjust the gap as needed */
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Skaber seks kolonner */
+  gap: 1rem; /* Afstand mellem kolonnerne */
 }
 
 /* Accordion item styling */
 .accordion-item {
   background: #f4f4f4;
   color: #333;
-  flex: 1 1 calc(50% - 1rem); /* Each item will take up half the container width minus the gap */
-  margin-bottom: 1rem;
+  /* Hvis der er brug for, kan du tilføje en minimumsbredde for at forhindre dem i at blive for smalle */
+  min-width: 0; /* Gør at indholdet ikke overskrider containeren */
 }
 
-/* Ensure accordion collapse areas are full width */
-.accordion-collapse {
-  width: 100%;
+/* Justering for mindre skærme */
+@media (max-width: 1200px) {
+  #gameRulesAccordion {
+    grid-template-columns: repeat(3, 1fr); /* Tre kolonner for mellemstore skærme */
+  }
 }
 
 @media (max-width: 768px) {
-  /* On smaller screens, allow accordion items to take full width */
-  .accordion-item {
-    flex-basis: 100%;
+  #gameRulesAccordion {
+    grid-template-columns: repeat(2, 1fr); /* To kolonner for små skærme */
+  }
+}
+
+@media (max-width: 480px) {
+  #gameRulesAccordion {
+    grid-template-columns: 1fr; /* En enkelt kolonne for meget små skærme */
   }
 }
 
