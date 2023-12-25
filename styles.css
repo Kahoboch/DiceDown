@@ -50,19 +50,32 @@ section h2 {
     color: #000000;
 }
 
-/* Akkordeon styling */
+/* Spillets Regler section styling */
+#gameRulesAccordion {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Adjust the gap as needed */
+  justify-content: center;
+}
+
+/* Accordion item styling */
 .accordion-item {
-    background: #f4f4f4;
-    color: #333;
+  background: #f4f4f4;
+  color: #333;
+  flex: 1 1 calc(50% - 1rem); /* Each item will take up half the container width minus the gap */
+  margin-bottom: 1rem;
 }
 
-.accordion-button {
-    background: #f4f4f4;
-    color: #ffffff;
+/* Ensure accordion collapse areas are full width */
+.accordion-collapse {
+  width: 100%;
 }
 
-.accordion-button:hover {
-    filter: brightness(90%);
+@media (max-width: 768px) {
+  /* On smaller screens, allow accordion items to take full width */
+  .accordion-item {
+    flex-basis: 100%;
+  }
 }
 
 /* Produktkort */
