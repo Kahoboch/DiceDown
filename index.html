@@ -83,27 +83,6 @@
     }
 });
 </script>
-<section id="home" class="bg-gray-800 p-10 text-center">
-    <h2 class="text-3xl font-bold">Det Ultimative Terningsspil for Par!</h2>
-    <p class="mt-4 text-xl">Oplev spændingen, strategien, og ikke mindst, latteren som følger med hvert kast!</p>
-
-    <!-- Interaktivt Terningespil Element -->
-<div id="dice-game" class="mt-6">
-    <div id="dice-container"></div>
-    <select id="diceType" class="bg-gray-700 text-white p-2 rounded mt-4">
-        <option value="4">D4</option>
-        <option value="6" selected>D6</option>
-        <option value="8">D8</option>
-        <option value="10">D10</option>
-        <option value="12">D12</option>
-        <option value="20">D20</option>
-    </select>
-    <button id="rollButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
-        Kast Terningen
-    </button>
-    <p id="diceResult" class="mt-4"></p>
-</div>
-</section>
 
 <section id="rules" class="p-10 text-center bg-gray-700 text-white">
     <h2 class="text-3xl font-bold mb-4">Spillets Regler</h2>
@@ -146,7 +125,7 @@
             </h2>
             <div id="collapseContinue" class="accordion-collapse collapse" aria-labelledby="headingContinue" data-bs-parent="#gameRulesAccordion">
                 <div class="accordion-body">
-                    Den spiller der slår det laveste tal skal opgradere sin terning til den næste størrelse i næste runde. I tilfælde af en bundet laveste score fortsætter de bundne spillere med at slå deres terninger indtil en af dem vinder.
+                    Den spiller der slår det laveste tal skal opgradere sin terning til den næste størrelse i næste runde. I tilfælde af at to eller flere spillere slår det laveste score fortsætter disse spillere med at slå deres terninger indtil en af dem vinder.
                 </div>
             </div>
         </div>
@@ -160,15 +139,7 @@
             </h2>
             <div id="collapseMaxScore" class="accordion-collapse collapse" aria-labelledby="headingMaxScore" data-bs-parent="#gameRulesAccordion">
                 <div class="accordion-body">
-                    Hvis en spiller slår det højeste tal som deres terning kan (f.eks. 8 på en D8), får de en speciel handling afhængigt af terningen:
-                    <ul>
-                        <li>D4: Ingen speciel handling.</li>
-                        <li>D6: Vælg en spiller der må slå sin terning om (kan ikke være dig selv).</li>
-                        <li>D8: Vælg en spiller der må slå sin terning om (kan være dig selv).</li>
-                        <li>D10: Vælg en spiller der skal slå sin terning om.</li>
-                        <li>D12: Vælg en spiller der skal gå en terning ned.</li>
-                        <li>D20: Vælg en spiller der skal gå en terning ned eller op.</li>
-                    </ul>
+                    Hvis en spiller slår det højeste tal som deres terning kan (f.eks. 8 på en D8), får de en speciel handling afhængigt af terningen (disse regler kan læses i næste afsnit)
                 </div>
             </div>
         </div>
@@ -212,74 +183,44 @@
         <div class="dice-card bg-white text-black p-4 rounded shadow-lg">
             <img src="d4.svg" alt="D4" class="mx-auto" />
             <h3 class="text-xl font-bold mt-2">D4</h3>
-            <p>Regel for D4 terning.</p>
+            <p>Ingen speciel handling.</p>
         </div>
 
         <!-- D6 Kort -->
         <div class="dice-card bg-white text-black p-4 rounded shadow-lg">
             <img src="d6.svg" alt="D6" class="mx-auto" />
             <h3 class="text-xl font-bold mt-2">D6</h3>
-            <p>Regel for D6 terning.</p>
+            <p>Vælg en spiller der må slå sin terning om (kan ikke være dig selv).</p>
         </div>
 
         <!-- D8 Kort -->
         <div class="dice-card bg-white text-black p-4 rounded shadow-lg">
             <img src="d8.svg" alt="D8" class="mx-auto" />
             <h3 class="text-xl font-bold mt-2">D8</h3>
-            <p>Regel for D8 terning.</p>
+            <p>Vælg en spiller der må slå sin terning om (kan være dig selv).</p>
         </div>
 
         <!-- D10 Kort -->
         <div class="dice-card bg-white text-black p-4 rounded shadow-lg">
             <img src="d10.svg" alt="D10" class="mx-auto" />
             <h3 class="text-xl font-bold mt-2">D10</h3>
-            <p>Regel for D10 terning.</p>
+            <p>Vælg en spiller der skal slå sin terning om.</p>
         </div>
 
         <!-- D12 Kort -->
         <div class="dice-card bg-white text-black p-4 rounded shadow-lg">
             <img src="d12.svg" alt="D12" class="mx-auto" />
             <h3 class="text-xl font-bold mt-2">D12</h3>
-            <p>Regel for D12 terning.</p>
+            <p>Vælg en spiller der skal gå en terning ned.</p>
         </div>
 
         <!-- D20 Kort -->
         <div class="dice-card bg-white text-black p-4 rounded shadow-lg">
             <img src="d20.svg" alt="D20" class="mx-auto" />
             <h3 class="text-xl font-bold mt-2">D20</h3>
-            <p>Regel for D20 terning.</p>
+            <p>Vælg en spiller der skal gå en terning ned eller op.</p>
         </div>
     
-
-    </div>
-</section>
-
-
-<section id="shop" class="bg-gray-800 p-10 text-center">
-    <h2 class="text-3xl font-bold text-white underline decoration-yellow-500">Dice Down Udstyr</h2>
-    <p class="text-xl text-gray-300 mt-2 mb-10">Alt du behøver for at tage dit spil til næste niveau!</p>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-5">
-
-        <!-- Eksempel på et produktkort -->
-        <div class="transition-transform hover:scale-105 duration-300">
-            <div class="bg-white rounded-lg overflow-hidden shadow-lg">
-                <img src="d4.png" alt="Dice Set" class="w-full h-64 object-cover">
-                <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2">Luksus Terning Sæt</h3>
-                    <p class="text-gray-700 text-base">
-                        Opgrader spillet med disse håndpolerede, vægtede terninger. Fremstillet af premium materialer for den perfekte rulning hver gang.
-                    </p>
-                    <div class="mt-4 flex justify-between items-center">
-                        <span class="text-2xl font-bold">249 kr</span>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-colors duration-300">
-                            Tilføj til kurv
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Gentag produktkort for hvert produkt -->
 
     </div>
 </section>
