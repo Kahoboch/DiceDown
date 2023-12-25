@@ -23,7 +23,7 @@ body {
 
 /* Header styling */
 header {
-    background: var(--main-dark);
+    background: var(--accent-purple);
     padding: 1rem 0;
     text-align: center;
 }
@@ -41,11 +41,11 @@ nav a {
 }
 
 nav a:hover {
-    background: var(--accent-blue);
+    background: var(--accent-purple);
     border-radius: 5px;
 }
 
-/* Section styling */
+/* Sektion styling */
 section {
     padding: 2rem 0;
 }
@@ -55,94 +55,44 @@ section h2 {
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--main-light);
+    color: var(--main-dark);
 }
 
-/* Accordion styling */
+#gameRulesAccordion {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Skaber seks kolonner */
+  gap: 1rem; /* Afstand mellem kolonnerne */
+}
+
+/* Accordion item styling */
 .accordion-item {
-    background: var(--main-light);
-    color: var(--main-dark);
+  background: var(--main-light);
+  color: var(--accent-purple);
+  /* Hvis der er brug for, kan du tilføje en minimumsbredde for at forhindre dem i at blive for smalle */
+  min-width: 0; /* Gør at indholdet ikke overskrider containeren */
 }
 
-.accordion-button {
-    background: var(--main-light);
-    color: var(--main-dark);
+/* Justering for mindre skærme */
+@media (max-width: 1200px) {
+  #gameRulesAccordion {
+    grid-template-columns: repeat(3, 1fr); /* Tre kolonner for mellemstore skærme */
+  }
 }
 
-.accordion-button:hover {
-    filter: brightness(90%);
+@media (max-width: 768px) {
+  #gameRulesAccordion {
+    grid-template-columns: repeat(2, 1fr); /* To kolonner for små skærme */
+  }
 }
 
-/* Product card styling */
-.product-card {
-    background: var(--main-light);
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-
-.product-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.product-card h3 {
-    font-size: 1.5rem;
-    color: var(--main-dark);
-}
-
-.product-card p {
-    padding: 0 1rem;
-    font-size: 1rem;
-    color: #666;
-}
-
-.product-card button {
-    background: var(--accent-blue);
-    color: var(--main-light);
-    border: none;
-    padding: 0.75rem 2rem;
-    margin: 1rem;
-    cursor: pointer;
-}
-
-.product-card button:hover {
-    filter: brightness(90%);
-}
-
-/* Game description styling */
-.game-description {
-    position: relative; /* Needed for absolute positioning of children */
-    background-color: var(--main-light);
-    overflow: hidden; /* Prevents icons from overflowing the section */
-}
-
-.icon-decorations {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 0; /* Ensures icons stay in the background */
-}
-
-/* Styling for icons */
-.icon {
-    position: absolute; /* Allows for absolute positioning within .icon-decorations */
-    max-width: 50px; /* Sets a max size for the icons */
-    max-height: 50px; /* Sets a max size for the icons */
-}
-
-/* Ensure text content is above icons */
-.game-description .container {
-    position: relative;
-    z-index: 1; /* Higher than .icon-decorations */
+@media (max-width: 480px) {
+  #gameRulesAccordion {
+    grid-template-columns: 1fr; /* En enkelt kolonne for meget små skærme */
+  }
 }
 
 #dice-rules {
-  background-color: var(--accent-purple);
+  background-color: var(--main-light);
   padding: 2rem;
 }
 
@@ -182,9 +132,118 @@ section h2 {
   }
 }
 
+#downloads {
+  background-color: var(--main-light);
+  padding: 2rem;
+}
+
+.downloads-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.download-card {
+  background: var(--main-light);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.download-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.download-card a {
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .downloads-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.game-description {
+    position: relative; /* Needed for absolute positioning of children */
+    background-color: var(--main-light); /* Assuming a white background */
+    overflow: hidden; /* Prevents icons from overflowing the section */
+}
+
+.icon-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Ensures icons stay in the background */
+}
+
+/* Styling for icons */
+.icon {
+    position: absolute; /* Allows for absolute positioning within .icon-decorations */
+    max-width: 50px; /* Sets a max size for the icons */
+    max-height: 50px; /* Sets a max size for the icons */
+    /* Remove height and width if using SVGs as they can be controlled within the SVG file */
+}
+
+/* Ensure text content is above icons */
+.game-description .container {
+    position: relative;
+    z-index: 1; /* Higher than .icon-decorations */
+}
+
+/* Additional responsive and decorative styles */
+@media (min-width: 768px) {
+    /* Your existing media query styles ... */
+}
+
+/* Ensures text content has a background to avoid overlap issues with icons */
+.game-description h2, .game-description p {
+    background-color: var(--main-light);
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+}
+
+/* Optional: Add some padding around the .game-description to ensure icons don't get too close to the text */
+.game-description {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.icon-decorations {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-decorations .icon {
+    height: 50px; /* Eller en anden passende størrelse */
+    width: auto;
+}
+
+/* Du kan tilføje overgange eller hover-effekter for at give ikonerne en følelse af interaktivitet */
+.icon-decorations .icon:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Responsivitet */
+@media (max-width: 768px) {
+    .game-description h2 {
+        font-size: 4rem;
+    }
+    .game-description p {
+        font-size: 2rem;
+    }
+}
+
 /* Footer */
 footer {
-    background: var(--main-dark);
+    background: var(--accent-purple);
     color: var(--main-light);
     text-align: center;
     padding: 1rem 0;
@@ -194,7 +253,7 @@ footer p {
     margin: 0;
 }
 
-/* Responsive styling */
+/* Tilpasning til forskellige enheder */
 @media (min-width: 768px) {
     header, footer {
         padding: 1rem 3rem;
@@ -205,10 +264,4 @@ footer p {
         justify-content: center;
         align-items: center;
     }
-
-    .game-description h2, .game-description p {
-        font-size: 1rem; /* Juster tekststørrelsen efter behov */
-    }
 }
-
-/* Add more responsive and decorative styles as needed */
