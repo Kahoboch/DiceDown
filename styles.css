@@ -1,4 +1,4 @@
-/* Farve Definitioner */
+/* Definerer farvevariabler */
 :root {
     --main-dark: #32292f;
     --main-light: #f6f4f5;
@@ -24,9 +24,13 @@ body {
 /* Header styling */
 header {
     background: var(--main-dark);
-    color: var(--main-light);
     padding: 1rem 0;
     text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: var(--accent-purple);
 }
 
 /* Navigation links */
@@ -36,18 +40,14 @@ nav a {
     padding: 0.5rem 1rem;
 }
 
-nav a:hover, nav a:focus {
+nav a:hover {
     background: var(--accent-blue);
-    color: var(--main-light);
     border-radius: 5px;
-    transition: background-color 0.3s ease;
 }
 
-/* Sektion styling */
+/* Section styling */
 section {
     padding: 2rem 0;
-    background: var(--main-light);
-    color: var(--main-dark);
 }
 
 section h2 {
@@ -55,9 +55,10 @@ section h2 {
     margin-bottom: 1rem;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: var(--main-light);
 }
 
-/* Akkordeon styling */
+/* Accordion styling */
 .accordion-item {
     background: var(--main-light);
     color: var(--main-dark);
@@ -65,31 +66,37 @@ section h2 {
 
 .accordion-button {
     background: var(--main-light);
-    color: var(--accent-purple);
+    color: var(--main-dark);
 }
 
 .accordion-button:hover {
-    background: var(--accent-purple);
-    color: var(--main-light);
+    filter: brightness(90%);
 }
 
-/* Produktkort */
+/* Product card styling */
 .product-card {
     background: var(--main-light);
-    color: var(--main-dark);
-    border: 1px solid var(--accent-purple);
+    border: 1px solid #ddd;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
 .product-card h3 {
     font-size: 1.5rem;
+    color: var(--main-dark);
 }
 
 .product-card p {
     padding: 0 1rem;
     font-size: 1rem;
+    color: #666;
 }
 
 .product-card button {
@@ -102,7 +109,77 @@ section h2 {
 }
 
 .product-card button:hover {
-    background: var(--accent-purple);
+    filter: brightness(90%);
+}
+
+/* Game description styling */
+.game-description {
+    position: relative; /* Needed for absolute positioning of children */
+    background-color: var(--main-light);
+    overflow: hidden; /* Prevents icons from overflowing the section */
+}
+
+.icon-decorations {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Ensures icons stay in the background */
+}
+
+/* Styling for icons */
+.icon {
+    position: absolute; /* Allows for absolute positioning within .icon-decorations */
+    max-width: 50px; /* Sets a max size for the icons */
+    max-height: 50px; /* Sets a max size for the icons */
+}
+
+/* Ensure text content is above icons */
+.game-description .container {
+    position: relative;
+    z-index: 1; /* Higher than .icon-decorations */
+}
+
+#dice-rules {
+  background-color: var(--accent-purple);
+  padding: 2rem;
+}
+
+.dice-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.dice-card {
+  background: var(--main-light);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.dice-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.dice-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .dice-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .dice-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* Footer */
@@ -113,134 +190,25 @@ footer {
     padding: 1rem 0;
 }
 
-/* Resten af dine stilarter... */
+footer p {
+    margin: 0;
+}
 
-/* Responsivitet */
-@media (max-width: 768px) {
-    header {
-        padding: 0.5rem;
+/* Responsive styling */
+@media (min-width: 768px) {
+    header, footer {
+        padding: 1rem 3rem;
     }
 
     nav {
-        flex-direction: column;
-    }
-
-    nav a {
-        margin-bottom: 0.5rem;
-    }
-
-    .game-description h2 {
-        font-size: 4rem;
-    }
-
-    .game-description p,
-    section p,
-    .accordion-button,
-    .product-card p {
-        font-size: 1.2rem;
-    }
-
-    .product-card {
-        margin-bottom: 1rem;
-    }
-
-    .icon-decorations .icon {
-        height: 30px;
-    }
-}
-
-@media (max-width: 576px) {
-    .game-description h2 {
-        font-size: 3rem;
-    }
-
-    .game-description p,
-    section p {
-        font-size: 1rem;
-    }
-
-    .icon-decorations {
-        justify-content: space-around;
-    }
-
-    .accordion-button,
-    .product-card h3 {
-        font-size: 1.3rem;
-    }
-}
-
-/* Tilføj yderligere media queries og stilarter efter behov */
-
-/* Produktkort i kolonner */
-@media (min-width: 992px) {
-    .product-cards-container {
         display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
+        justify-content: center;
+        align-items: center;
     }
 
-    .product-card {
-        flex: 1 1 calc(33.333% - 1rem);
+    .game-description h2, .game-description p {
+        font-size: 1rem; /* Juster tekststørrelsen efter behov */
     }
 }
 
-/* Terning-kort styling */
-.terninge-kort {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 1rem;
-    gap: 0.5rem;
-}
-
-.terninge-kort img {
-    max-width: 100px; /* Juster efter behov */
-    margin-bottom: 1rem;
-}
-
-/* Generel button styling */
-button {
-    background: var(--accent-purple);
-    color: var(--main-light);
-    border: none;
-    border-radius: 5px;
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background: var(--accent-blue);
-}
-
-/* Form elementer styling */
-input[type="text"],
-select {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--accent-purple);
-    border-radius: 5px;
-}
-
-/* Utility klasser */
-.text-center {
-    text-align: center;
-}
-
-.mt-1 { margin-top: 1rem; }
-.mb-1 { margin-bottom: 1rem; }
-.mt-2 { margin-top: 2rem; }
-.mb-2 { margin-bottom: 2rem; }
-/* osv... for margin/padding utility klasser */
-
-/* Specifikke farve utility klasser */
-.bg-main-dark { background-color: var(--main-dark); }
-.bg-main-light { background-color: var(--main-light); }
-.text-accent-purple { color: var(--accent-purple); }
-.text-accent-blue { color: var(--accent-blue); }
-
-/* Tilføj flere utility klasser efter behov */
-
-
+/* Add more responsive and decorative styles as needed */
