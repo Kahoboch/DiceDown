@@ -25,6 +25,12 @@ a {
     padding: 0.5rem 1rem;
 }
 
+a {
+    color: var(--main-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
 a:hover {
     background: var(--accent-purple);
     border-radius: 5px;
