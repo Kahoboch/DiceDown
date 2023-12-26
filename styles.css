@@ -6,14 +6,12 @@
     --accent-blue: #191970;
 }
 
-/* Grundlæggende reset */
-* {
+body, h1, h2, h3, p, a, img, button {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    border: 0;
 }
 
-/* Body styling */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
@@ -21,41 +19,34 @@ body {
     color: var(--main-light);
 }
 
-/* Header styling */
+a {
+    color: var(--main-light);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+a:hover {
+    background: var(--accent-purple);
+    border-radius: 5px;
+}
+
 header {
     background: var(--main-dark);
     padding: 1rem 0;
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
-    color: var(--accent-purple);
+/* Logo Image */
+header img {
+    max-width: 200px; /* Tilpas dette efter dit logo's størrelse */
+    margin: 0 auto;
 }
 
-header h2 {
-    margin: 0;
-    color: var(--accent-purple);
-}
-
-/* Navigation links */
-nav a {
-    color: var(--main-light);
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-}
-
-nav a:hover {
-    background: var(--accent-purple);
-    border-radius: 5px;
-}
-
-/* Sektion styling */
 section {
     padding: 2rem 0;
 }
 
-section h2 {
+h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -63,37 +54,21 @@ section h2 {
     color: var(--main-dark);
 }
 
+/* Accordion styling */
+.accordion-item {
+    background: var(--main-light);
+    color: var(--main-dark);
+}
+
+.accordion-button {
+    background: var(--main-light);
+    color: var(--main-dark);
+}
+
 #gameRulesAccordion {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* Skaber seks kolonner */
   gap: 1rem; /* Afstand mellem kolonnerne */
-}
-
-/* Accordion item styling */
-.accordion-item {
-  background: var(--main-light);
-  color: var(--accent-purple);
-  /* Hvis der er brug for, kan du tilføje en minimumsbredde for at forhindre dem i at blive for smalle */
-  min-width: 0; /* Gør at indholdet ikke overskrider containeren */
-}
-
-/* Justering for mindre skærme */
-@media (max-width: 1200px) {
-  #gameRulesAccordion {
-    grid-template-columns: repeat(3, 1fr); /* Tre kolonner for mellemstore skærme */
-  }
-}
-
-@media (max-width: 768px) {
-  #gameRulesAccordion {
-    grid-template-columns: repeat(2, 1fr); /* To kolonner for små skærme */
-  }
-}
-
-@media (max-width: 480px) {
-  #gameRulesAccordion {
-    grid-template-columns: 1fr; /* En enkelt kolonne for meget små skærme */
-  }
 }
 
 #dice-rules {
@@ -248,16 +223,11 @@ section h2 {
 
 /* Footer */
 footer {
-    background: var(--accent-purple);
+    background: var(--main-dark);
     color: var(--main-light);
     text-align: center;
     padding: 1rem 0;
 }
-
-footer p {
-    margin: 0;
-}
-
 /* Tilpasning til forskellige enheder */
 @media (min-width: 768px) {
     header, footer {
